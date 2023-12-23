@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	html {
+		-moz-osx-font-smoothing: grayscale;
+		-webkit-font-smoothing: antialiased;
+
+		@apply bg-gray-900 text-slate-100 font-sans font-medium;
+	}
+
+	@keyframes slide {
+		100% {
+			background-position: 50px 0, 125px 25px;
+		}
+	}
+
+	h1 {
+		@apply text-slate-50 text-3xl font-bold pb-4;
+	}
+	h2 {
+		@apply text-slate-50 text-lg font-bold pb-2;
+	}
+	a > * :not(h1, h2, h3, p, span, svg, path) {
+		@apply hyperlink pb-0 text-atlas-blue hover:text-atlas-blue font-semibold;
+	}
+	ul {
+		@apply py-4;
+	}
+	li {
+		@apply marker:text-atlas-blue list-item list-disc list-outside ml-8 pl-2 py-1;
+	}
+}
+
+@layer components {
+	.custom-ring {
+		@apply focus:outline-none focus-visible:ring focus-visible:ring-atlas-blue;
+	}
+	.custom-focus {
+		@apply focus:outline-none focus:bg-inherit focus-visible:bg-atlas-blue;
+	}
+	.hyperlink {
+		@apply custom-ring text-atlas-blue underline underline-offset-[3px] decoration-[1px] hover:decoration-[3px] group-hover:decoration-[2px];
+	}
+	.hyperlink-without-group-hover {
+		@apply custom-ring text-atlas-blue underline underline-offset-[3px] decoration-[1px] hover:decoration-[3px];
+	}
+	.hyperlink-reverse {
+		@apply custom-ring text-atlas-grey-5 underline underline-offset-[3px] decoration-[1px] hover:decoration-[2px] group-hover:decoration-[2px];
+	}
+	.hoverable {
+		@apply cursor-pointer;
+	}
+	.mark {
+		@apply bg-yellow-300 font-bold;
+	}
+
+	.bg-atom-anim {
+		@apply px-4 min-h-screen sm:px-0 space-y-16 w-full;
+		background-image: radial-gradient(hsla(0, 0%, 33%, 0.25) 1px, transparent 0),
+			radial-gradient(hsla(0, 0%, 33%, 0.15) 1px, transparent 0);
+		background-size: 50px 50px;
+		background-position: 0 0, 25px 25px;
+		-webkit-animation: slide 2s linear infinite;
+		animation: slide 4s linear infinite;
+	}
+}
