@@ -1,4 +1,5 @@
 import type { FeatureCollection, Polygon } from 'geojson';
+import type { GEOTYPES } from './constants';
 
 export interface GeoJSONProperties<T> {
 	GlobalID: string;
@@ -14,4 +15,4 @@ export interface GeoJSONProperties<T> {
 
 export type BoundaryData = FeatureCollection<Polygon, GeoJSONProperties<GeoType>>;
 
-export type GeoType = 'country' | 'region';
+export type GeoType = keyof typeof GEOTYPES;

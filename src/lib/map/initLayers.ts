@@ -1,5 +1,3 @@
-import palette from '$map/colours';
-
 export const initLayers = (map: mapboxgl.Map) => {
 	map.addLayer({
 		id: 'boundaries-fill',
@@ -7,7 +5,7 @@ export const initLayers = (map: mapboxgl.Map) => {
 		source: 'boundaries',
 		layout: {},
 		paint: {
-			'fill-color': palette[2],
+			'fill-color': '#aaa',
 			'fill-opacity': ['case', ['boolean', ['feature-state', 'hover'], false], 1, 0.5]
 		}
 	});
@@ -18,7 +16,7 @@ export const initLayers = (map: mapboxgl.Map) => {
 		source: 'boundaries',
 		layout: {},
 		paint: {
-			'line-color': '#333',
+			'line-color': '#444',
 			'line-width': 1
 		}
 	});
