@@ -12,6 +12,9 @@ const config = {
 	// darkMode: 'class',
 	theme: {
 		extend: {
+			maxWidth: {
+				'3xs': '8rem'
+			},
 			screens: {
 				xs: '475px',
 				xxs: '200px'

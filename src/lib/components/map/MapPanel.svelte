@@ -2,6 +2,6 @@
 	import Map from '$components/map/Map.svelte';
 </script>
 
-<section class="h-full relative w-full">
+<section class="relative h-full w-full">
 	<Map />
 </section>

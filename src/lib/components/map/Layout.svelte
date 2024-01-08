@@ -1,23 +1,25 @@
 <script>
 	import MapPanel from '$components/map/MapPanel.svelte';
+	import Sidebar from '$components/map/Sidebar.svelte';
+	import Hamburger from '../Hamburger.svelte';
+
+	let sidebarOpen = false;
 </script>
 
-<div class="inset-0 absolute lg:flex flex-col text-dluhc-black">
-	<div class="flex-1 flex flex-col lg:flex-row overflow-hidden">
-		<div
-			class="
-					flex flex-col shrink-0 w-3xl
-					space-y-6
-					lg:overflow-y-auto
-					lg:mt-0 lg:border-r-black border-r-[2px]
-					lg:max-w-[25rem] xl:min-w-[30rem] xl:max-w-[35rem]
-				"
+<div class="absolute text-dluhc-black z-50">
+	<Sidebar bind:open={sidebarOpen}>
+		<button
+			on:click={() => (sidebarOpen = !sidebarOpen)}
+			class="mb-8 rotate-90 transition-transform"
+			class:rotate-0={sidebarOpen}
 		>
-			<div class="flex-1 p-6">
-				<slot />
-			</div>
-		</div>
+			<Hamburger />
+		</button>
 
-		<MapPanel />
-	</div>
+		<slot />
+	</Sidebar>
+</div>
+
+<div class="inset-0 absolute text-dluhc-black overflow-hidden">
+	<MapPanel />
 </div>
