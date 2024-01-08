@@ -1,21 +1,12 @@
-<script>
+<script lang="ts">
 	import MapPanel from '$components/map/MapPanel.svelte';
 	import Sidebar from '$components/map/Sidebar.svelte';
-	import Hamburger from '../Hamburger.svelte';
 
-	let sidebarOpen = false;
+	let sidebarOpen = true;
 </script>
 
 <div class="absolute text-dluhc-black z-50">
 	<Sidebar bind:open={sidebarOpen}>
-		<button
-			on:click={() => (sidebarOpen = !sidebarOpen)}
-			class="mb-8 rotate-90 transition-transform"
-			class:rotate-0={sidebarOpen}
-		>
-			<Hamburger />
-		</button>
-
 		<slot />
 	</Sidebar>
 </div>
